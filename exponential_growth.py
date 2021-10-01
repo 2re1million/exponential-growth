@@ -3,6 +3,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 import streamlit as st
 np.set_printoptions(suppress=True)
+pd.show_versions()
 
 #Ingress 
 st.title('Renters Rente [BETA]')
