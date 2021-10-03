@@ -59,7 +59,7 @@ for i in range(len(columns)):
 
 ###### BUGG:  Se nærmere på denne  19200 (fjerne nuller på annen måte)
 
-df[df <= 19200.0] = 0
+df[df < (df[1].iloc[0])] = 0
 
 df['Sammenlagt'] = df.sum(axis=1)
 
@@ -76,6 +76,7 @@ st.write("Med en årlig sparing på:", int(åI/12),"kr i MND", "og med en gj.sni
 st.write("Det er", (tot-(1599*12)*ÅR).round(0).astype(int), "kr mer enn å spare på sparekonto.")
 
 ###### Prosjekt grafer
-st.line_chart(data=df.Sammenlagt,use_container_width=1,)
+st.line_chart(data=df.Sammenlagt, use_container_width=1,)
 
+print(df)
 
