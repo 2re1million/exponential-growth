@@ -68,7 +68,7 @@ tot = df['Sammenlagt'].iloc[-1]
 ###### Prosjekt Antall år column 
 df['AntallÅr'] = range(len(df))
 df['AntallÅr'] = df['AntallÅr'] + 1
-
+df.index += 1 
 print("So far so good")
 
 ###### Porjsket calculations 
