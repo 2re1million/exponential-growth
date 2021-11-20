@@ -18,6 +18,8 @@ st.write('Verdens åttende underverk')
 #You will multiply it by more than 117 times.
 #	""") 
 
+## Oppsparte midler 
+S = st.number_input(label='Oppsparte middler :', key=int, value=10000)
 ### Sett månedlig inntekt:
 mI = st.number_input(label='Månedlig sparing på:', value=1599)
 ### Sett månedlig Rente / avkastning - antatt snitt
@@ -69,14 +71,21 @@ tot = df['Sammenlagt'].iloc[-1]
 df['AntallÅr'] = range(len(df))
 df['AntallÅr'] = df['AntallÅr'] + 1
 df.index += 1 
+
+oppsp = S*r**n 
+total = df['Sammenlagt'].iloc[-1] + oppsp
+
 print("So far so good")
 
 ###### Porjsket calculations 
 st.write("Med en årlig sparing på:", int(åI/12),"kr i MND", "og med en gj.snitt rente på", rente,"% vil totalbeløpet til syvende og sist bli", tot.round(0).astype(int), "kr", "etter", ÅR, "år")
 st.write("Det er", (tot-(1599*12)*ÅR).round(0).astype(int), "kr mer enn å spare på sparekonto.")
+st.write("Med oppsparte midler og fast innsatt beløp er TOTALEN", total.round(0).astype(int), "kr ")
+
 
 ###### Prosjekt grafer
 st.line_chart(data=df.Sammenlagt, use_container_width=1,)
+
 
 print(df)
 
