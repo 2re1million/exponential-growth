@@ -78,8 +78,8 @@ df[1] = list2
 
 df['Sammenlagt'] = df.sum(axis=1)
 
-
-df['Sammenlagt'] = df['Sammenlagt'].apply(lambda x: x*åInf)
+# justert for inflasjon 0.225
+df['Sammenlagt'] = df['Sammenlagt'].apply(lambda x: x-(x*åInf))
 
 tot = df['Sammenlagt'].iloc[-1]
 
