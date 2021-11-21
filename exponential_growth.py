@@ -19,7 +19,7 @@ st.write('Verdens åttende underverk')
 #	""") 
 
 ## Oppsparte midler 
-S = st.number_input(label='Oppsparte middler :', key=int, value=10000)
+S = st.number_input(label='Oppsparte middler :*** Not working', key=int, value=10000)
 ### Sett månedlig inntekt:
 mI = st.number_input(label='Månedlig sparing på:', value=1599)
 ### Sett månedlig Rente / avkastning - antatt snitt
