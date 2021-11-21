@@ -25,14 +25,11 @@ mI = st.number_input(label='Månedlig sparing på:', value=1599)
 ### Sett månedlig Rente / avkastning - antatt snitt
 rente = st.number_input(label='Gjennomsnittlig årlig rente på:', value=7.88)
 ### Antall år
-ÅR = st.number_input(label='Antall år med sparing:', key=int, value=18)
+n = st.number_input(label='Antall år med sparing:', key=int, value=18)
 
 
 ########## Prosjekt Rente
 r = ((rente / 100)+1)
-#r = (r1 + 1)
-# Antall år:
-n = ÅR
 
 ############## Prosjekt Inflasjon #### KLADD
 åInf = 0.025
@@ -63,6 +60,16 @@ for i in range(len(columns)):
 
 df[df < (df[1].iloc[0])] = 0
 
+list1 = df[1]
+list2 = []
+
+for i in list1:
+  if i <= first:
+    list2.append(first + (S * r))
+  else:
+    list2.append(i + (S *r))
+df[1] = list2
+
 df['Sammenlagt'] = df.sum(axis=1)
 
 tot = df['Sammenlagt'].iloc[-1]
@@ -72,15 +79,17 @@ df['AntallÅr'] = range(len(df))
 df['AntallÅr'] = df['AntallÅr'] + 1
 df.index += 1 
 
-oppsp = S*r**n 
-total = df['Sammenlagt'].iloc[-1] + oppsp
+#oppsp = S*r**n 
+#total = df['Sammenlagt'].iloc[-1] + oppsp
 
 print("So far so good")
 
-###### Porjsket calculations 
-st.write("Med en årlig sparing på:", int(åI/12),"kr i MND", "og med en gj.snitt rente på", rente,"% vil totalbeløpet til syvende og sist bli", tot.round(0).astype(int), "kr", "etter", ÅR, "år")
+###### Projsekt calculations 
+st.write(f"Med ett første innskudd på: {S}kr og deretter en månedlig sparing på {mI}kr. Har pengene vokst til {tot}kr etter {n}år med en rente på {r}%.
 st.write("Det er", (tot-(1599*12)*ÅR).round(0).astype(int), "kr mer enn å spare på sparekonto.")
-st.write("Med oppsparte midler og fast innsatt beløp er TOTALEN", total.round(0).astype(int), "kr ")
+#st.write(""" Med en årlig sparing på:", int(åI/12),"kr i MND", "og med en gj.snitt rente på", rente,"% vil totalbeløpet til syvende og sist bli", tot.round(0).astype(int), "kr", "etter", ÅR, "år" """)
+#st.write("Det er", (tot-(1599*12)*ÅR).round(0).astype(int), "kr mer enn å spare på sparekonto.")
+#st.write("Med oppsparte midler og fast innsatt beløp er TOTALEN", total.round(0).astype(int), "kr ")
 
 
 ###### Prosjekt grafer
