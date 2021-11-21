@@ -33,15 +33,15 @@ r = ((rente / 100)+1)
 
 ############## Prosjekt Inflasjon #### KLADD
 åInf = 0.025
-mInf = mI * åInf
-mI = mI - mInf
+#mInf = mI * åInf
+#mI = mI - mInf
 # Årlig inntekt:
 åI = mI * 12
 #15.991 - 18.296. (2.306 14.42%) 
 #print((mI-åInf) * 12)
 #sparepenger infl.
 inflS = S * åInf
-S = S - inflS
+#S = S - inflS
 
 ############# Prosjekt Eksponensiellvekst:
 ev = åI*r**n
@@ -79,6 +79,11 @@ df[1] = list2
 df['Sammenlagt'] = df.sum(axis=1)
 
 tot = df['Sammenlagt'].iloc[-1]
+
+åInf = 0.025
+inflTot = tot * åInf
+tot = tot - inflTot
+
 
 ###### Prosjekt Antall år column 
 df['AntallÅr'] = range(len(df))
