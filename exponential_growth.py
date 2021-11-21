@@ -60,6 +60,7 @@ for i in range(len(columns)):
 
 df[df < (df[1].iloc[0])] = 0
 
+first = df[1].iloc[0]
 list1 = df[1]
 list2 = []
 
