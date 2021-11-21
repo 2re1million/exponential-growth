@@ -85,7 +85,7 @@ df.index += 1
 print("So far so good")
 
 ###### Projsekt calculations 
-st.write("Etter ",n,"år, vil pengene vokse til ",tot.round(0).astype(int),"kr.)
+st.write("Etter ",n,"år, vil pengene vokse til ",tot.round(0).astype(int),"kr.")
 
 #st.write(f"Med ett første innskudd på: {S}kr og deretter en månedlig sparing på {mI}kr. Har pengene vokst til {tot}kr etter {n}år med en rente på {r}%.")
 #st.write("Det er", (tot-(1599*12)*ÅR).round(0).astype(int), "kr mer enn å spare på sparekonto.")
