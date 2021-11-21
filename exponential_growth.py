@@ -36,7 +36,7 @@ r = ((rente / 100)+1)
 mInf = mI * åInf
 mI = mI - mInf
 # Årlig inntekt:
-åI = ((mI * 12)
+åI = mI * 12
 #15.991 - 18.296. (2.306 14.42%) 
 #print((mI-åInf) * 12)
 #sparepenger infl.
