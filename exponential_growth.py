@@ -78,11 +78,15 @@ df[1] = list2
 
 df['Sammenlagt'] = df.sum(axis=1)
 
+
+df['Sammenlagt'] = df['Sammenlagt'].apply(lambda x: x*åInf)
+
 tot = df['Sammenlagt'].iloc[-1]
 
-åInf = 0.025
-inflTot = tot * åInf
-tot = tot - inflTot
+#åInf = 0.025
+#inflTot = tot * åInf
+#tot = tot - inflTot
+
 
 
 ###### Prosjekt Antall år column 
