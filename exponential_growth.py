@@ -37,6 +37,9 @@ r = ((rente / 100)+1)
 åI = ((mI-åInf) * 12)
 #15.991 - 18.296. (2.306 14.42%) 
 #print((mI-åInf) * 12)
+#sparepenger infl.
+inflS = S * 0.025
+S = S - inflS
 
 ############# Prosjekt Eksponensiellvekst:
 ev = åI*r**n
