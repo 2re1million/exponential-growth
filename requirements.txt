@@ -1,5 +1,5 @@
 pandas==1.2.4
-streamlit==0.80.0
+streamlit==1.11.1
 streamlit-analytics==0.2.2
 streamlit-metrics==0.1.0
 matplotlib==3.4.3
