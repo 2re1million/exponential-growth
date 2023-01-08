@@ -72,7 +72,7 @@ last_year_savings = df['total_savings'].iloc[-1]
 st.write(f'Total savings after {years} years: ', int(last_year_savings), ',-')
 
 # Show the result in a line graph:
-st.line_chart(df, y="savings")
+st.line_chart(df, x="year". y="savings")
 
 # Show the results in the Streamlit app
 st.dataframe(df)
