@@ -3,7 +3,7 @@ import streamlit as st
 
 
 # Set title and intro message
-st.title('Savings Calculator')
+st.title('Exponential Savings 🤑')
 
 
 st.info("💡 Exponential growth is called the eight wonder of the world. It is a rapid increase in a quantity over time, characterized by a rate that is proportional to the current value of the quantity.")
@@ -72,7 +72,7 @@ last_year_savings = df['total_savings'].iloc[-1]
 st.write(f'Total savings after {years} years: ', int(last_year_savings), ',-')
 
 # Show the result in a line graph:
-st.line_chart(df, x="year", y="savings")
+st.line_chart(df, y="savings")
 
 # Show the results in the Streamlit app
 st.dataframe(df)
