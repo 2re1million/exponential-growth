@@ -33,7 +33,7 @@ annual_inflation_rate = st.slider(
     label='Annual inflation rate:',
     key='annual_inflation_rate',
     min_value=0.0,
-    max_value=25.0,
+    max_value=10.0,
     value=2.5,
     step=0.1
 )
