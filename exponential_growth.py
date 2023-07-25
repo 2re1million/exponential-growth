@@ -1,5 +1,3 @@
-### scrape inflation number avalible use autoscraper
-
 import pandas as pd
 import streamlit as st
 
@@ -14,13 +12,13 @@ st.write('Try it out you self... Calculate how much your savings will grow each 
 initial_savings = st.number_input(
     label='Initial savings:',
     key='initial_savings',
-    value=10000,
+    value=10000.0,
     min_value=0.0
 )
 monthly_savings = st.number_input(
     label='Monthly savings:',
     key='monthly_savings',
-    value=1599,
+    value=1599.0,
     min_value=0.0
 )
 annual_interest_rate = st.number_input(
@@ -32,8 +30,8 @@ annual_interest_rate = st.number_input(
 years = st.number_input(
     label='Number of years:',
     key='years',
-    value=18,
-    min_value=0
+    value=18.0,
+    min_value=0.0
 )
 annual_inflation_rate = st.slider(
     label='Annual inflation rate:',
@@ -48,7 +46,7 @@ annual_inflation_rate = st.slider(
 annual_income = monthly_savings * 12
 
 # Create a DataFrame with the number of years
-df = pd.DataFrame({'year': range(1, years+1)})
+df = pd.DataFrame({'year': range(1, int(years)+1)})
 
 # Calculate the total savings for each year
 df['total_savings'] = initial_savings * (1 + annual_interest_rate/100) ** df['year'] + annual_income * (((1 + annual_interest_rate/100) ** df['year']) - 1) / (annual_interest_rate/100)
@@ -60,7 +58,7 @@ df['total_savings'] = df['total_savings'] / (1 + annual_inflation_rate/100) ** d
 last_year_savings = df['total_savings'].iloc[-1]
 
 # Write the total savings for the last year in the "metrics" element
-st.write(f'Total savings after {years} years: ', int(last_year_savings), ',-')
+st.write(f'Total savings after {int(years)} years: ', int(last_year_savings), ',-')
 
 # Show the result in a line chart:
 st.line_chart(df[['year', 'total_savings']].set_index('year'))
